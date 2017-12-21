@@ -1,0 +1,11 @@
+FROM fedora:27
+
+MAINTAINER Alex Smith <alex.smith@redhat.com>
+
+ADD setup.sh /tmp/setup.sh
+RUN /bin/bash /tmp/setup.sh
+
+USER phantomjs
+WORKDIR /home/phantomjs
+
+ENTRYPOINT ["/home/phantomjs/phantomjs/bin/phantomjs"]
